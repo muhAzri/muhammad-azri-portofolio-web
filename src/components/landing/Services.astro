@@ -1,0 +1,46 @@
+---
+import ServicesItem from "../carousel/ServicesItem.astro";
+
+const services = [
+  {
+    name: "Mobile App Development",
+    description: `I specialize in creating high-quality mobile applications tailored to
+          your needs. From concept to deployment, I ensure your app meets the
+          highest standards of functionality and user experience.`,
+  },
+  {
+    name: "Golang Web App Development",
+    description: `Leveraging the power of Golang, I develop robust and scalable web
+          applications. With expertise in backend development, I create
+          efficient and reliable solutions that meet your business requirements.`,
+  },
+  {
+    name: "Fullstack Hybrid Flutter App Development with Golang Backend:",
+    description: `I offer end-to-end development of hybrid mobile applications using
+          Flutter for the frontend and Golang for the backend. This approach
+          ensures seamless integration, optimal performance, and a cohesive user
+          experience across platforms.`,
+  },
+];
+---
+
+<section class="border-white/20 border-b">
+  <div class="mx-auto border-white/20 border-x max-w-7xl">
+    <div class="p-8">
+      <p class="text-white font-display uppercase text-3xl lg:text-6xl">
+        Our Services: Explained
+      </p>
+    </div>
+    <div
+      class="text-white text-xs gap-3 gap-y-12 grid grid-cols-1 md:grid-cols-3 mx-auto p-8 sm:grid-cols-2 md:gap-y-0"
+    >
+      {
+        services.map((item) => {
+          return (
+            <ServicesItem name={item.name} description={item.description} />
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

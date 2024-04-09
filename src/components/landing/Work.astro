@@ -1,0 +1,148 @@
+---
+import CarousellItem from "../carousel/CarousellItem.astro";
+
+var projects = [];
+
+projects = [
+  {
+    imagePath: "/work/manhwaIndo.png",
+    projectName: "Manhwa Indo",
+  },
+  // {
+  //   imagePath: "/work/2.png",
+  //   projectName: "Project 2",
+  // },
+  // {
+  //   imagePath: "/work/3.png",
+  //   projectName: "Project 3",
+  // },
+  // {
+  //   imagePath: "/work/4.png",
+  //   projectName: "Project 4",
+  // },
+  // {
+  //   imagePath: "/work/5.png",
+  //   projectName: "Project 5",
+  // },
+  // {
+  //   imagePath: "/work/6.png",
+  //   projectName: "Project 6",
+  // },
+  // {
+  //   imagePath: "/work/7.png",
+  //   projectName: "Project 7",
+  // },
+  // {
+  //   imagePath: "/work/8.png",
+  //   projectName: "Project 8",
+  // },
+  // {
+  //   imagePath: "/work/9.png",
+  //   projectName: "Project 9",
+  // },
+  // {
+  //   imagePath: "/work/10.png",
+  //   projectName: "Project 10",
+  // },
+];
+---
+
+<section class="border-b border-white/20 bg-accent-500">
+  <div
+    class="mx-auto max-w-7xl border-x border-white/20 px-8 py-12 gradient-grid"
+  >
+    <div class="mx-auto">
+      <h3 class="text-3xl font-display text-white uppercase">
+        Crafted and developed mobile applications as an Expert Fullstack Hybrid
+        Mobile App Developer.
+      </h3>
+    </div>
+  </div>
+</section>
+<section class="border-b border-white/20 bg-accent-500">
+  <div
+    class="mx-auto max-w-7xl border-white/20 border-x"
+    x-data=`{ init() {
+            new Splide(this.$refs.splide, {
+
+                perPage: 5,
+                gap: '0rem',
+                breakpoints: {
+                    640: {
+                        perPage: 1,
+                    },
+                },
+
+            }).mount()
+        },
+    }`
+  >
+    <section
+      class="splide is-initialized splide--slide splide--ltr splide--draggable is-active"
+      aria-label="Splide/Alpine.js"
+      x-ref="splide"
+      id="splide01"
+      aria-roledescription="carousel"
+    >
+      <div class="splide__arrows splide__arrows--ltr items-center">
+        <button
+          class="splide__arrow splide__arrow--prev"
+          type="button"
+          aria-label="Previous slide"
+          aria-controls="splide01-track"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 40 40"
+            width="40"
+            height="40"
+            focusable="false"
+            ><path
+              d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"
+            ></path></svg
+          ></button
+        >
+        <button
+          class="splide__arrow splide__arrow--next"
+          type="button"
+          disabled=""
+          aria-label="Next slide"
+          aria-controls="splide01-track"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 40 40"
+            width="40"
+            height="40"
+            focusable="false"
+            ><path
+              d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"
+            ></path></svg
+          ></button
+        >
+      </div>
+      <div
+        class="h-full splide__track splide__track--slide splide__track--ltr splide__track--draggable"
+        id="splide01-track"
+        style="padding-left: 0px; padding-right: 0px;"
+        aria-live="polite"
+        aria-atomic="true"
+        aria-busy="false"
+      >
+        <ul
+          class="splide__list"
+          id="splide01-list"
+          role="presentation"
+          style="transform: translateX(-2040px);"
+        >
+          {
+            projects.map((item, index) => (
+              <CarousellItem
+                projectName={item.projectName}
+                imagePath={item.imagePath}
+              />
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </div>
+</section>
